@@ -1,7 +1,9 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import { ThemeProvider } from './context/ThemeContext';
+import { Navigation } from './components/Navigation';
 import { Dashboard } from './pages/Dashboard';
+import { Analytics } from './pages/Analytics';
 
 import { Loader2 } from 'lucide-react';
 
@@ -15,22 +17,23 @@ function LoadingSpinner() {
 
 export default function App() {
   return (
-   
+    <ThemeProvider>
       <Router>
         <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-
+          <Navigation />
           <div className="md:pl-64 pb-16 md:pb-0">
             <main className="min-h-screen p-4 md:p-6">
               <Suspense fallback={<LoadingSpinner />}>
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
-      
+                  <Route path="/analytics" element={<Analytics />} />
+
                 </Routes>
               </Suspense>
             </main>
           </div>
         </div>
       </Router>
-
+    </ThemeProvider>
   );
 }
