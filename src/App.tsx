@@ -4,7 +4,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import { Navigation } from './components/Navigation';
 import { Dashboard } from './pages/Dashboard';
 import { Analytics } from './pages/Analytics';
-
+import { Settings } from './pages/Settings';
 import { Loader2 } from 'lucide-react';
 
 function LoadingSpinner() {
@@ -27,7 +27,7 @@ export default function App() {
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/analytics" element={<Analytics />} />
-
+                  <Route path="/settings" element={<Settings />} />
                 </Routes>
               </Suspense>
             </main>

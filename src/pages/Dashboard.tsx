@@ -1,6 +1,6 @@
 import React from 'react';
 import { Users, ThumbsUp, MessageCircle, Share2 } from 'lucide-react';
-
+import { MetricCard } from '../components/MetricCard';
 import { AnalyticsChart } from '../components/AnalyticsChart';
 import { NotificationPanel } from '../components/NotificationPanel';
 import type { ChartData, Notification } from '../types';
@@ -17,14 +17,14 @@ const mockNotifications: Notification[] = [
   {
     id: '1',
     title: 'New Follower',
-    message: 'Donald Trump started following you',
+    message: 'John Doe started following you',
     timestamp: new Date(),
     read: false,
   },
   {
     id: '2',
     title: 'Post Performance',
-    message: 'Your latest post reached 1,0000 views',
+    message: 'Your latest post reached 1,000 views',
     timestamp: new Date(Date.now() - 3600000),
     read: true,
   },
@@ -46,7 +46,30 @@ export function Dashboard() {
       </h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
+        <MetricCard
+          title="Followers"
+          value="12,345"
+          icon={<Users size={20} />}
+          trend={2.5}
+        />
+        <MetricCard
+          title="Likes"
+          value="8,642"
+          icon={<ThumbsUp size={20} />}
+          trend={1.8}
+        />
+        <MetricCard
+          title="Comments"
+          value="3,721"
+          icon={<MessageCircle size={20} />}
+          trend={-0.5}
+        />
+        <MetricCard
+          title="Shares"
+          value="1,832"
+          icon={<Share2 size={20} />}
+          trend={4.2}
+        />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
